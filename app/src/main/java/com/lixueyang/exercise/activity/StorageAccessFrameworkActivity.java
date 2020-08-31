@@ -1,21 +1,18 @@
 package com.lixueyang.exercise.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.lixueyang.exercise.R;
 import com.lixueyang.exercise.databinding.ActivityStorageAccessFrameworkBinding;
-import com.lixueyang.exercise.utils.CollectionUtils;
-
-import java.util.List;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,14 +34,21 @@ import androidx.databinding.DataBindingUtil;
  * 而Intent.ACTION_PICK则不可以
  * <p>
  * <p>
- * 1、Intent.ACTION_OPEN_DOCUMENT获取的uri可以长期保持。
- * Intent.ACTION_GET_CONTENT获取的uri在app关闭后后会失效，所以这里的uri保存到本地会出现无效情况。
+ * 1、Intent.ACTION_OPEN_DOCUMENT获取的uri可以长期保持。可以保存到SharedPreferences中，
+ * Intent.ACTION_GET_CONTENT和Intent.ACTION_PICK获取的uri在activity关闭后后会失效，所以这里的uri保存到本地会出现无效情况。
+ * <p>
+ * <p>
+ * 1、Intent.ACTION_VIEW只是展示图片，而不能获取图片
  */
 public class StorageAccessFrameworkActivity extends AppCompatActivity {
   public static final String TAG = "MainActivity";
-  private static final int REQUEST_CODE_FOR_SINGLE_FILE = 100;
-  private static final int REQUEST_CODE_GET_CONTACTS = 101;
-  private static final int REQUEST_CODE_GET_PIC = 102;
+
+  public static final String SP_PIC_URI_KEY = "uri";
+  private static final int REQUEST_CODE_GET_PIC_FROM_DOCUMENT = 100;
+  private static final int REQUEST_CODE_GET_PIC_FROM_CONTENT = 101;
+  private static final int REQUEST_CODE_GET_PIC_FROM_APP = 102;
+  private static final int REQUEST_CODE_GET_PIC_FROM_VIEW = 103;
+
   private final String[] IMAGE_PROJECTION = {
       MediaStore.Images.Media.DISPLAY_NAME,
       MediaStore.Images.Media.SIZE,
@@ -61,28 +65,26 @@ public class StorageAccessFrameworkActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = DataBindingUtil.setContentView(this, R.layout.activity_storage_access_framework);
-    binding.setLifecycleOwner(this);
-    binding.btnOpenFile.setOnClickListener(view -> goSelectFile());
+    binding.btnOpenPicFromDocument.setOnClickListener(view -> openPicFromDocumentProvide());
     binding.btnOpenPicFromApp.setOnClickListener(view -> openPicFromApp());
     binding.btnOpenPicFromProvider.setOnClickListener(view -> openPicFromContentProvide());
-    binding.btnOpenMusic.setOnClickListener(view -> openMusic());
-    binding.btnOpenVideo.setOnClickListener(view -> openVideo());
-    binding.btnOpenContact.setOnClickListener(view -> goSelectedContact());
-    binding.btnOpenWeb.setOnClickListener(view -> openWeb());
+    binding.btnOpenPicFromView.setOnClickListener(view -> openPicFromView());
+    String picUri = getPreferences(Context.MODE_PRIVATE).getString(SP_PIC_URI_KEY, "");
+    if (!TextUtils.isEmpty(picUri)) {
+      binding.ivShowPic.setImageURI(Uri.parse(picUri).buildUpon().build());
+    }
   }
 
   /**
-   * 不用存储权限，获取图片
+   * 通过文档Provide获取图片
    */
-  private void goSelectFile() {
+  public void openPicFromDocumentProvide() {
     //通过系统的文件浏览器选择一个文件
-    Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-    //筛选，只显示可以“打开”的结果，如文件(而不是联系人或时区列表)
-    intent.addCategory(Intent.CATEGORY_OPENABLE);
-    //过滤只显示图像类型文件
-    intent.setType("image/*");
-    if (isActivityAlive(intent)) {
-      startActivityForResult(intent, REQUEST_CODE_FOR_SINGLE_FILE);
+    Intent imageIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+    imageIntent.setType("image/*");//"audio/*"对应音频，"video/*"对应视频
+    imageIntent.addCategory(Intent.CATEGORY_OPENABLE);
+    if (isActivityAlive(imageIntent)) {
+      startActivityForResult(imageIntent, REQUEST_CODE_GET_PIC_FROM_DOCUMENT);
     }
   }
 
@@ -94,19 +96,7 @@ public class StorageAccessFrameworkActivity extends AppCompatActivity {
     imageIntent.addCategory(Intent.CATEGORY_OPENABLE);
     imageIntent.setType("image/*");
     if (isActivityAlive(imageIntent)) {
-      startActivityForResult(imageIntent, REQUEST_CODE_GET_PIC);
-    }
-  }
-
-  /**
-   * 通过文档Provide获取图片
-   */
-  public void openPicFromDocumentProvide() {
-    Intent imageIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-    imageIntent.setType("image/*");
-    imageIntent.addCategory(Intent.CATEGORY_OPENABLE);
-    if (isActivityAlive(imageIntent)) {
-      startActivityForResult(imageIntent, REQUEST_CODE_GET_PIC);
+      startActivityForResult(imageIntent, REQUEST_CODE_GET_PIC_FROM_CONTENT);
     }
   }
 
@@ -118,59 +108,19 @@ public class StorageAccessFrameworkActivity extends AppCompatActivity {
     Intent imageIntent = new Intent(Intent.ACTION_PICK);
     imageIntent.setType("image/*");
     if (isActivityAlive(imageIntent)) {
-      startActivityForResult(imageIntent, REQUEST_CODE_GET_PIC);
+      startActivityForResult(imageIntent, REQUEST_CODE_GET_PIC_FROM_APP);
     }
   }
 
   /**
-   * 通过view获取图片
+   * 通过view获展示图片，无法获取图片
    * 这里不能使用imageIntent.addCategory(Intent.CATEGORY_OPENABLE);
    */
   public void openPicFromView() {
     Intent imageIntent = new Intent(Intent.ACTION_VIEW);
     imageIntent.setType("image/*");
     if (isActivityAlive(imageIntent)) {
-      startActivityForResult(imageIntent, REQUEST_CODE_GET_PIC);
-    }
-  }
-
-  public void openWeb() {
-    Uri webPage = Uri.parse("http://www.android.com");
-    Intent webIntent = new Intent(Intent.ACTION_VIEW, webPage);
-    // Create intent to show chooser
-    Intent chooser = Intent.createChooser(webIntent, "www.android.com");
-
-    if (isActivityAlive(chooser)) {
-      startActivity(chooser);
-    }
-  }
-
-  public void openMusic() {
-    Intent audioIntent = new Intent(Intent.ACTION_GET_CONTENT);
-    audioIntent.setType("audio/*");
-    if (isActivityAlive(audioIntent)) {
-      startActivityForResult(audioIntent, 3);
-    }
-  }
-
-  public void openVideo() {
-    Intent videoIntent = new Intent(Intent.ACTION_GET_CONTENT);
-    videoIntent.setType("video/*");
-
-    if (isActivityAlive(videoIntent)) {
-      startActivityForResult(videoIntent, 4);
-    }
-  }
-
-  /**
-   * 不用存储权限，获取联系人
-   * 打开手机上的联系人app
-   */
-  private void goSelectedContact() {
-    Intent intent = new Intent(Intent.ACTION_PICK);
-    intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
-    if (isActivityAlive(intent)) {
-      startActivityForResult(intent, REQUEST_CODE_GET_CONTACTS);
+      startActivityForResult(imageIntent, REQUEST_CODE_GET_PIC_FROM_VIEW);
     }
   }
 
@@ -192,47 +142,38 @@ public class StorageAccessFrameworkActivity extends AppCompatActivity {
     if (uri == null) {
       return;
     }
-    Cursor cursor = null;
+
+    binding.ivShowPic.setImageURI(uri);
+
+    String type;
     switch (requestCode) {
-      case REQUEST_CODE_FOR_SINGLE_FILE:
-        // 获取图片信息
-        cursor = this.getContentResolver()
-            .query(uri, IMAGE_PROJECTION, null, null, null, null);
-
-        if (cursor != null && cursor.moveToFirst()) {
-          String displayName = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[0]));
-          String size = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[1]));
-          Log.i(TAG, "OPEN_DOCUMENT_Uri: " + uri.toString());
-          Log.i(TAG, "OPEN_DOCUMENT_Name: " + displayName);
-          Log.i(TAG, "OPEN_DOCUMENT_Size: " + size);
-        }
+      case REQUEST_CODE_GET_PIC_FROM_DOCUMENT:
+        type = "from document";
         break;
-      case REQUEST_CODE_GET_CONTACTS:
-        String[] projection = new String[]{ContactsContract.CommonDataKinds.Phone.NUMBER,
-            ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
-        cursor = getContentResolver().query(uri, null,
-            null, null, null);
-        if (cursor != null && cursor.moveToFirst()) {
-          int numberIndex = cursor.getColumnIndex(projection[0]);
-          int nameIndex = cursor.getColumnIndex(projection[1]);
-
-        }
+      case REQUEST_CODE_GET_PIC_FROM_CONTENT:
+        type = "from content";
         break;
-      case REQUEST_CODE_GET_PIC:
-        // 获取图片信息
-        cursor = this.getContentResolver()
-            .query(uri, IMAGE_PROJECTION, null, null, null, null);
-
-        if (cursor != null && cursor.moveToFirst()) {
-          String displayName = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[0]));
-          String size = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[1]));
-          Log.i(TAG, "GET_PIC_Uri: " + uri.toString());
-          Log.i(TAG, "GET_PIC_Name: " + displayName);
-          Log.i(TAG, "GET_PIC_Size: " + size);
-        }
+      case REQUEST_CODE_GET_PIC_FROM_APP:
+        type = "from app";
         break;
+      case REQUEST_CODE_GET_PIC_FROM_VIEW:
+        type = "from view";
+        break;
+      default:
+        throw new IllegalStateException("Unexpected value: " + requestCode);
     }
-    if (cursor != null) {
+    // 获取图片信息
+    Cursor cursor = this.getContentResolver()
+        .query(uri, IMAGE_PROJECTION, null, null, null, null);
+
+    if (cursor != null && cursor.moveToFirst()) {
+      String displayName = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[0]));
+      String size = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[1]));
+      Log.e(TAG, type + " Uri: " + uri.toString() + "Name:" + displayName + "size:" + size);
+      SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+      SharedPreferences.Editor editor = sharedPreferences.edit();
+      editor.putString(SP_PIC_URI_KEY, uri.toString());
+      editor.apply();
       cursor.close();
     }
   }
