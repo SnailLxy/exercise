@@ -1,0 +1,8 @@
+<resources>
+  <string name="exercise_app_name">Exercise</string>
+  <string name="exercise_storage_access_framework">Storage Access Framework</string>
+  <string name="exercise_two_way_binding">TwoWayBinding</string>
+  <string name="exercise_create_new_document">createNewDocument</string>
+  <string name="exercise_use_multiple_tasks">useMultipleTasks</string>
+  <string name="exercise_document_num">Document {0}</string>
+</resources>

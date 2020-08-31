@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_open_file"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="open file"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_open_pic_from_app"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="open pic from app"
+        app:layout_constraintTop_toBottomOf="@id/btn_open_file" />
+
+    <Button
+        android:id="@+id/btn_open_pic_from_provider"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="open pic from provider"
+        app:layout_constraintTop_toBottomOf="@id/btn_open_pic_from_app" />
+
+    <Button
+        android:id="@+id/btn_open_music"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="open music"
+        app:layout_constraintTop_toBottomOf="@id/btn_open_pic_from_provider" />
+
+    <Button
+        android:id="@+id/btn_open_video"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="open video"
+        app:layout_constraintTop_toBottomOf="@id/btn_open_music" />
+
+    <Button
+        android:id="@+id/btn_open_contact"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="open contact"
+        app:layout_constraintTop_toBottomOf="@id/btn_open_video" />
+
+    <Button
+        android:id="@+id/btn_open_web"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="open web"
+        app:layout_constraintTop_toBottomOf="@id/btn_open_contact" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

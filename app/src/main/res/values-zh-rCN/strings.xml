@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="exercise_app_name">练习</string>
+  <string name="exercise_storage_access_framework">存储访问框架</string>
+  <string name="exercise_two_way_binding">双向绑定</string>
+  <string name="exercise_create_new_document">创建新文档</string>
+  <string name="exercise_use_multiple_tasks">使用多个任务</string>
+  <string name="exercise_document_num">第{0}个文档</string>
+</resources>
