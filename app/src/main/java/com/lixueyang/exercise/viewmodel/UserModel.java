@@ -1,4 +1,4 @@
-package com.lixueyang.exercise.activity.viewmodel;
+package com.lixueyang.exercise.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

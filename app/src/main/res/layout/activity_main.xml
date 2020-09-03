@@ -10,6 +10,7 @@
 
     <Button
         android:id="@+id/btn_goto_saf_activity"
+        style="@style/GotoActivityButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/exercise_storage_access_framework"
@@ -17,19 +18,27 @@
 
     <Button
         android:id="@+id/btn_goto_two_way_binding_activity"
+        style="@style/GotoActivityButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
         android:text="@string/exercise_two_way_binding"
         app:layout_constraintTop_toBottomOf="@id/btn_goto_saf_activity" />
 
     <Button
         android:id="@+id/btn_goto_recent_screen_activity"
+        style="@style/GotoActivityButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
         android:text="@string/exercise_create_new_document"
         app:layout_constraintTop_toBottomOf="@id/btn_goto_two_way_binding_activity" />
+
+    <Button
+        android:id="@+id/btn_goto_common_intent_activity"
+        style="@style/GotoActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/exercise_common_intent"
+        app:layout_constraintTop_toBottomOf="@id/btn_goto_recent_screen_activity" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

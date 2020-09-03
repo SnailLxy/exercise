@@ -7,4 +7,32 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <style name="ExerciseActivityTheme" parent="@style/Theme.AppCompat.Light">
+    <item name="android:colorBackground">@color/c_activity_bg</item>
+    <item name="android:windowBackground">@color/c_activity_bg</item>
+  </style>
+
+  <style name="GotoActivityButton">
+    <item name="android:background">@drawable/selector_goto_activity_btn</item>
+    <item name="android:textColor">@color/c_text_white</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_marginStart">25dp</item>
+    <item name="android:layout_marginTop">20dp</item>
+    <item name="android:layout_marginEnd">25dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textSize">18sp</item>
+  </style>
+
+  <style name="FeaturesButton">
+    <item name="android:background">@drawable/selector_features_btn</item>
+    <item name="android:textColor">@color/c_text_white</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_marginStart">25dp</item>
+    <item name="android:layout_marginTop">20dp</item>
+    <item name="android:layout_marginEnd">25dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textSize">18sp</item>
+  </style>
 </resources>

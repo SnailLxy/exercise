@@ -1,8 +1,21 @@
 <resources>
-  <string name="exercise_app_name">Exercise</string>
-  <string name="exercise_storage_access_framework">Storage Access Framework</string>
-  <string name="exercise_two_way_binding">TwoWayBinding</string>
-  <string name="exercise_create_new_document">createNewDocument</string>
-  <string name="exercise_use_multiple_tasks">useMultipleTasks</string>
-  <string name="exercise_document_num">Document {0}</string>
+  //国际化练习
+  <string name="exercise_app_name">练习</string>
+  <string name="exercise_storage_access_framework">存储访问框架</string>
+  <string name="exercise_two_way_binding">双向绑定</string>
+  <string name="exercise_create_new_document">创建新文档</string>
+  <string name="exercise_use_multiple_tasks">使用多个任务</string>
+  <string name="exercise_document_num">第{0}个文档</string>
+  <string name="exercise_common_intent">常见Intent</string>
+  <string name="exercise_easiest_intent">最简单的Intent</string>
+  <string name="exercise_set_alarm">设置闹钟</string>
+  <string name="exercise_show_alarms">显示所有闹钟</string>
+  <string name="exercise_set_timer">创建倒计时器</string>
+  <string name="exercise_add_calendar">添加日历事件</string>
+  <string name="exercise_alarm_intent">闹钟相关Intent</string>
+  <string name="exercise_camera_intent">相机相关Intent</string>
+  <string name="exercise_camera_capture_image">获取图片</string>
+  <string name="exercise_camera_capture_image_still">启动相机，不获取图片</string>
+  <string name="exercise_camera_capture_video">获取视频</string>
+  <string name="exercise_camera_capture_video_mode">启动相，不获取视频</string>
 </resources>

@@ -1,9 +1,8 @@
 package com.lixueyang.exercise.activity;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 
-
+import com.lixueyang.exercise.activity.commonintent.CommonIntentActivity;
 import com.lixueyang.exercise.databinding.ActivityMainBinding;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     binding.btnGotoSafActivity.setOnClickListener(view -> StorageAccessFrameworkActivity.startSAFActivity(MainActivity.this));
     binding.btnGotoTwoWayBindingActivity.setOnClickListener(view -> TwoWayBindingActivity.startTwoWayBindingActivity(MainActivity.this));
     binding.btnGotoRecentScreenActivity.setOnClickListener(view -> RecentScreenActivity.startRecentScreenActivity(MainActivity.this));
+    binding.btnGotoCommonIntentActivity.setOnClickListener(view -> CommonIntentActivity.startCommonIntentActivity(MainActivity.this));
   }
 
 

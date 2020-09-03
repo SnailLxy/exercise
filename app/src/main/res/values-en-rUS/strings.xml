@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="exercise_alarm_intent">Alarm Intent</string>
+  <string name="exercise_camera_intent">Camera Intent</string>
+  <string name="exercise_camera_capture_image">capture image</string>
+  <string name="exercise_camera_capture_video">capture video</string>
+  <string name="exercise_camera_capture_image_still">Start a camera app in still image mode</string>
+  <string name="exercise_camera_capture_video_mode">Start a camera app in video mode</string>
+</resources>

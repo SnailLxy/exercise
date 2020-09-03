@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.commonintent.CameraIntentActivity">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_capture_image"
+        style="@style/FeaturesButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/exercise_camera_capture_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_capture_video"
+        style="@style/FeaturesButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/exercise_camera_capture_video"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_capture_image" />
+
+    <Button
+        android:id="@+id/btn_capture_image_still"
+        style="@style/FeaturesButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/exercise_camera_capture_image_still"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_capture_video" />
+
+    <Button
+        android:id="@+id/btn_capture_video_mode"
+        style="@style/FeaturesButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/exercise_camera_capture_video_mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_capture_image_still" />
+
+    <VideoView
+        android:id="@+id/vv_show_capture_video"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_show_capture_image"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/iv_show_capture_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.4"
+        app:layout_constraintStart_toEndOf="@id/vv_show_capture_video" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

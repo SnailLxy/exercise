@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#6200EE</color>
-  <color name="colorPrimaryDark">#3700B3</color>
-  <color name="colorAccent">#03DAC5</color>
+  <color name="colorPrimary">#29B7CB</color>//蔚蓝
+  <color name="colorPrimaryDark">#51C4D3</color>//瀑布蓝
+  <color name="colorAccent">#F8DF70</color>//麦秆黄
+  <color name="c_activity_bg">#F7F4ED</color>//鱼肚白,主背景色
+  <color name="c_goto_activity_normal">#2486B9</color>//宝石蓝
+  <color name="c_goto_activity_pressed">#2474B5</color>//尼罗蓝
+  <color name="c_features_normal">#55BB8A</color>//麦苗绿
+  <color name="c_features_press">#20A162</color>//翠绿
+  <color name="c_text_white">#ffffff</color>
 </resources>
