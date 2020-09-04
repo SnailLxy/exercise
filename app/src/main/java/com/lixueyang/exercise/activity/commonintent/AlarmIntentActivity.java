@@ -1,35 +1,35 @@
 package com.lixueyang.exercise.activity.commonintent;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.AlarmClock;
 
 import com.lixueyang.exercise.R;
-import com.lixueyang.exercise.databinding.ActivityAlarmBinding;
+import com.lixueyang.exercise.databinding.ActivityAlarmIntentBinding;
 import com.lixueyang.exercise.utils.IntentUtils;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 /**
  * 闹钟相关常用Intent
  * 必须获取的权限：
  * <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
  */
-public class AlarmActivity extends AppCompatActivity {
+public class AlarmIntentActivity extends AppCompatActivity {
 
-  private ActivityAlarmBinding binding;
+  private ActivityAlarmIntentBinding binding;
 
   public static void startAlarmActivity(Activity activity) {
-    Intent intent = new Intent(activity, AlarmActivity.class);
+    Intent intent = new Intent(activity, AlarmIntentActivity.class);
     activity.startActivity(intent);
   }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    binding = DataBindingUtil.setContentView(this, R.layout.activity_alarm);
+    binding = DataBindingUtil.setContentView(this, R.layout.activity_alarm_intent);
     initAlarmView();
   }
 

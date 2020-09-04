@@ -47,6 +47,14 @@
           android:layout_height="50dp"
           android:text="@string/exercise_camera_intent"
           app:layout_constraintTop_toBottomOf="@id/btn_goto_alarm_activity" />
+
+      <Button
+          android:id="@+id/btn_goto_contacts_activity"
+          style="@style/GotoActivityButton"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:text="@string/exercise_contacts_intent"
+          app:layout_constraintTop_toBottomOf="@id/btn_goto_camera_activity" />
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
 

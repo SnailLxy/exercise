@@ -6,4 +6,11 @@
   <string name="exercise_camera_capture_video">capture video</string>
   <string name="exercise_camera_capture_image_still">Start a camera app in still image mode</string>
   <string name="exercise_camera_capture_video_mode">Start a camera app in video mode</string>
+  <string name="exercise_selected_contacts">select contacts</string>
+  <string name="exercise_contacts_intent">Contact Intent</string>
+  <string name="exercise_phone_number">phone number</string>
+  <string name="exercise_contacts_name">contacts name</string>
+  <string name="exercise_view_contacts">view contacts</string>
+  <string name="exercise_edit_contacts">edit contacts</string>
+  <string name="exercise_insert_contacts">insert contacts</string>
 </resources>

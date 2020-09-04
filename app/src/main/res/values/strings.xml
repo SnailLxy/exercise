@@ -14,8 +14,16 @@
   <string name="exercise_add_calendar">添加日历事件</string>
   <string name="exercise_alarm_intent">闹钟相关Intent</string>
   <string name="exercise_camera_intent">相机相关Intent</string>
+  <string name="exercise_contacts_intent">联系人相关Intent</string>
   <string name="exercise_camera_capture_image">获取图片</string>
   <string name="exercise_camera_capture_image_still">启动相机，不获取图片</string>
   <string name="exercise_camera_capture_video">获取视频</string>
   <string name="exercise_camera_capture_video_mode">启动相，不获取视频</string>
+  <string name="exercise_selected_contacts">选择联系人</string>
+  <string name="exercise_view_contacts">查看联系人</string>
+  <string name="exercise_edit_contacts">编辑联系人</string>
+  <string name="exercise_insert_contacts">插入联系人</string>
+  <string name="exercise_phone_number">电话号码</string>
+  <string name="exercise_contacts_name">联系人姓名</string>
+
 </resources>
