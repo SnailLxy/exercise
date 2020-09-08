@@ -1,6 +1,7 @@
 package com.lixueyang.exercise.activity;
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,6 +33,7 @@ import androidx.databinding.DataBindingUtil;
  * <p>
  * 1、Intent.ACTION_GET_CONTENT与Intent.ACTION_OPEN_DOCUMENT最好加上Intent.CATEGORY_OPENABLE
  * 而Intent.ACTION_PICK则不可以
+ * Intent.CATEGORY_OPENABLE可以保证文件可以从contentProvider获取，以及通过 openFileDescriptor() 以文件流形式获取文件
  * <p>
  * <p>
  * 1、Intent.ACTION_OPEN_DOCUMENT获取的uri可以长期保持。可以保存到SharedPreferences中，
@@ -41,13 +43,14 @@ import androidx.databinding.DataBindingUtil;
  * 1、Intent.ACTION_VIEW只是展示图片，而不能获取图片
  */
 public class StorageAccessFrameworkActivity extends AppCompatActivity {
-  public static final String TAG = "MainActivity";
+  public static final String TAG = "StorageAccessFramework";
 
   public static final String SP_PIC_URI_KEY = "uri";
   private static final int REQUEST_CODE_GET_PIC_FROM_DOCUMENT = 100;
   private static final int REQUEST_CODE_GET_PIC_FROM_CONTENT = 101;
   private static final int REQUEST_CODE_GET_PIC_FROM_APP = 102;
   private static final int REQUEST_CODE_GET_PIC_FROM_VIEW = 103;
+  private static final int REQUEST_CODE_GET_MULTIPLE_PIC_FROM_CONTENT = 104;
 
   private final String[] IMAGE_PROJECTION = {
       MediaStore.Images.Media.DISPLAY_NAME,
@@ -69,6 +72,7 @@ public class StorageAccessFrameworkActivity extends AppCompatActivity {
     binding.btnOpenPicFromApp.setOnClickListener(view -> openPicFromApp());
     binding.btnOpenPicFromProvider.setOnClickListener(view -> openPicFromContentProvide());
     binding.btnOpenPicFromView.setOnClickListener(view -> openPicFromView());
+    binding.btnOpenMultiplePicFromProvider.setOnClickListener(view -> openMultiplePicFromContentProvide());
     String picUri = getPreferences(Context.MODE_PRIVATE).getString(SP_PIC_URI_KEY, "");
     if (!TextUtils.isEmpty(picUri)) {
       binding.ivShowPic.setImageURI(Uri.parse(picUri).buildUpon().build());
@@ -124,6 +128,19 @@ public class StorageAccessFrameworkActivity extends AppCompatActivity {
     }
   }
 
+  /**
+   * 通过内容Provide获取图片
+   */
+  public void openMultiplePicFromContentProvide() {
+    Intent imageIntent = new Intent(Intent.ACTION_GET_CONTENT);
+    imageIntent.addCategory(Intent.CATEGORY_OPENABLE);
+    imageIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+    imageIntent.setType("image/*");
+    if (isActivityAlive(imageIntent)) {
+      startActivityForResult(imageIntent, REQUEST_CODE_GET_MULTIPLE_PIC_FROM_CONTENT);
+    }
+  }
+
   private boolean isActivityAlive(Intent intent) {
     return intent.resolveActivity(getPackageManager()) != null;
   }
@@ -138,43 +155,46 @@ public class StorageAccessFrameworkActivity extends AppCompatActivity {
       return;
     }
     // 获取选择文件Uri
-    Uri uri = resultData.getData();
-    if (uri == null) {
-      return;
-    }
-
-    binding.ivShowPic.setImageURI(uri);
-
-    String type;
+    Uri uri;
     switch (requestCode) {
       case REQUEST_CODE_GET_PIC_FROM_DOCUMENT:
-        type = "from document";
-        break;
       case REQUEST_CODE_GET_PIC_FROM_CONTENT:
-        type = "from content";
-        break;
       case REQUEST_CODE_GET_PIC_FROM_APP:
-        type = "from app";
-        break;
       case REQUEST_CODE_GET_PIC_FROM_VIEW:
-        type = "from view";
+        if (resultData.getData() == null) {
+          return;
+        }
+        uri = resultData.getData();
+        // 获取图片信息
+        Cursor cursor = this.getContentResolver()
+            .query(uri, IMAGE_PROJECTION, null, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+          String displayName = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[0]));
+          String size = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[1]));
+          Log.e(TAG, " Uri: " + uri.toString() + "Name:" + displayName + "size:" + size);
+          cursor.close();
+        }
+        SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(SP_PIC_URI_KEY, uri.toString());
+        editor.apply();
+        binding.ivShowPic.setImageURI(uri);
+        break;
+      case REQUEST_CODE_GET_MULTIPLE_PIC_FROM_CONTENT:
+        if (resultData.getData() != null) {
+          //只获取单张图片
+          Log.e(TAG, "REQUEST_CODE_GET_MULTIPLE_PIC_FROM_CONTENT" + " Uri: " + resultData.getData().toString());
+        } else if (resultData.getClipData() != null) {
+          //长按选中多张图片
+          ClipData clipData = resultData.getClipData();
+          for (int i = 0; i < clipData.getItemCount(); i++) {
+            ClipData.Item item = clipData.getItemAt(i);
+            Log.e(TAG, "REQUEST_CODE_GET_MULTIPLE_PIC_FROM_CONTENT" + " Uri: " + item.getUri().toString() + ",text:" + item.getText() + ",position:" + i);
+          }
+        }
         break;
       default:
         throw new IllegalStateException("Unexpected value: " + requestCode);
-    }
-    // 获取图片信息
-    Cursor cursor = this.getContentResolver()
-        .query(uri, IMAGE_PROJECTION, null, null, null, null);
-
-    if (cursor != null && cursor.moveToFirst()) {
-      String displayName = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[0]));
-      String size = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_PROJECTION[1]));
-      Log.e(TAG, type + " Uri: " + uri.toString() + "Name:" + displayName + "size:" + size);
-      SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
-      SharedPreferences.Editor editor = sharedPreferences.edit();
-      editor.putString(SP_PIC_URI_KEY, uri.toString());
-      editor.apply();
-      cursor.close();
     }
   }
 }

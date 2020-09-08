@@ -10,6 +10,7 @@
         android:id="@+id/btn_open_pic_from_document"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        style="@style/FeaturesButton"
         android:text="open file from document"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -18,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        style="@style/FeaturesButton"
         android:text="open pic from app"
         app:layout_constraintTop_toBottomOf="@id/btn_open_pic_from_document" />
 
@@ -26,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
+        style="@style/FeaturesButton"
         android:text="open pic from provider"
         app:layout_constraintTop_toBottomOf="@id/btn_open_pic_from_app" />
 
@@ -35,7 +38,17 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="open pic from view"
+        style="@style/FeaturesButton"
         app:layout_constraintTop_toBottomOf="@id/btn_open_pic_from_provider" />
+
+    <Button
+        android:id="@+id/btn_open_multiple_pic_from_provider"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/exercise_open_multiple_pic_from_provider"
+        style="@style/FeaturesButton"
+        app:layout_constraintTop_toBottomOf="@id/btn_open_pic_from_view" />
 
     <ImageView
         android:id="@+id/iv_show_pic"

@@ -13,4 +13,5 @@
   <string name="exercise_view_contacts">view contacts</string>
   <string name="exercise_edit_contacts">edit contacts</string>
   <string name="exercise_insert_contacts">insert contacts</string>
+  <string name="exercise_open_multiple_pic_from_provider">open multiple pic from provide</string>
 </resources>

@@ -25,5 +25,6 @@
   <string name="exercise_insert_contacts">插入联系人</string>
   <string name="exercise_phone_number">电话号码</string>
   <string name="exercise_contacts_name">联系人姓名</string>
+  <string name="exercise_open_multiple_pic_from_provider">通过内容提供器获取多个文件</string>
 
 </resources>
