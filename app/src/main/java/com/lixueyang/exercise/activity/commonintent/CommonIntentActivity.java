@@ -48,6 +48,7 @@ public class CommonIntentActivity extends AppCompatActivity {
     binding.btnGotoAlarmActivity.setOnClickListener(view -> AlarmIntentActivity.startAlarmActivity(this));
     binding.btnGotoCameraActivity.setOnClickListener(view -> CameraIntentActivity.startCameraIntentActivity(this));
     binding.btnGotoContactsActivity.setOnClickListener(view -> ContactsIntentActivity.startContactsIntentActivity(this));
+    binding.btnGotoMapActivity.setOnClickListener(view -> MapIntentActivity.startMapIntentActivity(this));
   }
 
   /**
