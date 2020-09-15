@@ -11,7 +11,7 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-
+    <activity android:name=".activity.commonintent.SearchMediaPlayIntentActivity"></activity>
     <activity
         android:name=".activity.MainActivity"
         android:theme="@style/ExerciseActivityTheme">
@@ -43,9 +43,9 @@
         android:name=".activity.commonintent.AlarmIntentActivity"
         android:label="@string/exercise_alarm_intent" />
     <activity android:name=".activity.commonintent.CameraIntentActivity" />
-
     <activity android:name=".activity.commonintent.MapIntentActivity" />
     <activity android:name=".activity.commonintent.ContactsIntentActivity" />
+    <activity android:name=".activity.commonintent.ActionViewIntentActivity" />
 
     <provider
         android:name="androidx.core.content.FileProvider"

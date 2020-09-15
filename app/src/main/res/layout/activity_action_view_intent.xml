@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.commonintent.ActionViewIntentActivity">
+  <Button
+      android:id="@+id/btn_show_pic"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      style="@style/FeaturesButton"
+      android:text="show pic from action view"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+      android:id="@+id/btn_show_video"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_marginTop="20dp"
+      style="@style/FeaturesButton"
+      android:text="show video from action view"
+      app:layout_constraintTop_toBottomOf="@id/btn_show_pic" />
+
+  <Button
+      android:id="@+id/btn_show_audio"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_marginTop="20dp"
+      style="@style/FeaturesButton"
+      android:text="show audio from action view"
+      app:layout_constraintTop_toBottomOf="@id/btn_show_video" />
+
+  <Button
+      android:id="@+id/btn_show_web"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_marginTop="20dp"
+      android:text="show web from action view"
+      style="@style/FeaturesButton"
+      app:layout_constraintTop_toBottomOf="@id/btn_show_audio" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

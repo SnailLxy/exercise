@@ -16,4 +16,6 @@
   <string name="exercise_open_multiple_pic_from_provider">open multiple pic from provide</string>
   <string name="exercise_map_intent">map intent</string>
   <string name="exercise_open_map">open map</string>
+  <string name="exercise_action_view_intent">pure display intent</string>
+  <string name="exercise_search_media_play_intent">search media play intent</string>
 </resources>

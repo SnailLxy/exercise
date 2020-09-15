@@ -40,7 +40,7 @@ import androidx.databinding.DataBindingUtil;
  * Intent.ACTION_GET_CONTENT和Intent.ACTION_PICK获取的uri在activity关闭后后会失效，所以这里的uri保存到本地会出现无效情况。
  * <p>
  * <p>
- * 1、Intent.ACTION_VIEW只是展示图片，而不能获取图片
+ * 1、Intent.ACTION_VIEW只是展示图片，而不能获取图片,可以用来播放音乐或视频
  */
 public class StorageAccessFrameworkActivity extends AppCompatActivity {
   public static final String TAG = "StorageAccessFramework";

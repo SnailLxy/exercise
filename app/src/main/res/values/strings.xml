@@ -28,5 +28,7 @@
   <string name="exercise_open_multiple_pic_from_provider">通过内容提供器获取多个文件</string>
   <string name="exercise_map_intent">地图相关Intent</string>
   <string name="exercise_open_map">打开地图</string>
+  <string name="exercise_action_view_intent">纯展示相关Intent</string>
+  <string name="exercise_search_media_play_intent">通过搜索音乐并播放的Intent</string>
 
 </resources>
