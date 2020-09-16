@@ -12,8 +12,7 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".activity.commonintent.SendIntentActivity"></activity>
-    <activity android:name=".activity.commonintent.CallIntentActivity" />
+
     <activity
         android:name=".activity.MainActivity"
         android:theme="@style/ExerciseActivityTheme">
@@ -44,12 +43,33 @@
     <activity
         android:name=".activity.commonintent.AlarmIntentActivity"
         android:label="@string/exercise_alarm_intent" />
-    <activity android:name=".activity.commonintent.CameraIntentActivity" />
-    <activity android:name=".activity.commonintent.MapIntentActivity" />
-    <activity android:name=".activity.commonintent.ContactsIntentActivity" />
-    <activity android:name=".activity.commonintent.ActionViewIntentActivity" />
-    <activity android:name=".activity.commonintent.NewNoteIntentActivity" />
-    <activity android:name=".activity.commonintent.SearchIntentActivity" />
+    <activity
+        android:name=".activity.commonintent.CameraIntentActivity"
+        android:label="@string/exercise_common_intent" />
+    <activity
+        android:name=".activity.commonintent.MapIntentActivity"
+        android:label="@string/exercise_map_intent" />
+    <activity
+        android:name=".activity.commonintent.ContactsIntentActivity"
+        android:label="@string/exercise_contacts_intent" />
+    <activity
+        android:name=".activity.commonintent.ActionViewIntentActivity"
+        android:label="@string/exercise_action_view_intent" />
+    <activity
+        android:name=".activity.commonintent.NewNoteIntentActivity"
+        android:label="@string/exercise_new_note_intent" />
+    <activity
+        android:name=".activity.commonintent.SearchIntentActivity"
+        android:label="@string/exercise_search_intent" />
+    <activity
+        android:name=".activity.commonintent.SettingIntentActivity"
+        android:label="@string/exercise_setting_intent" />
+    <activity
+        android:name=".activity.commonintent.SendIntentActivity"
+        android:label="@string/exercise_send_intent" />
+    <activity
+        android:name=".activity.commonintent.CallIntentActivity"
+        android:label="@string/exercise_call_intent" />
 
     <provider
         android:name="androidx.core.content.FileProvider"

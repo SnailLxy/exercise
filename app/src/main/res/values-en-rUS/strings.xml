@@ -34,4 +34,5 @@
   <string name="exercise_new_note_intent">new note intent</string>
   <string name="exercise_call_intent">call intent</string>
   <string name="exercise_send_intent">send intent</string>
+  <string name="exercise_setting_intent">setting intent</string>
 </resources>

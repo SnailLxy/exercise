@@ -54,6 +54,7 @@ public class CommonIntentActivity extends AppCompatActivity {
     binding.btnGotoNewNoteIntentActivity.setOnClickListener(view -> NewNoteIntentActivity.startNewNoteIntentActivity(this));
     binding.btnGotoCallIntentActivity.setOnClickListener(view -> CallIntentActivity.startCallIntentActivity(this));
     binding.btnGotoSendIntentActivity.setOnClickListener(view -> SendIntentActivity.startSendIntentActivity(this));
+    binding.btnGotoSettingIntentActivity.setOnClickListener(view -> SettingIntentActivity.startSettingIntentActivity(this));
   }
 
   /**

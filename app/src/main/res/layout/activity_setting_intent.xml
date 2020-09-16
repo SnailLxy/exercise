@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.commonintent.SettingIntentActivity">
+
+  <com.lixueyang.exercise.widgets.FlowRadioGroup
+      android:id="@+id/frg_setting_action"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <RadioButton
+        android:id="@+id/rb_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="打开设置页"
+        android:checked="true"/>
+
+    <RadioButton
+        android:id="@+id/rb_wireless_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="打开无线设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_airplane_mode_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开飞行模式设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_wifi_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开WIFI设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_apn_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开APN设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_bluetooth_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开蓝牙设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_date_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开日期设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_locale_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开区域设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_input_mathod_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开输入方法设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_display_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开显示设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_security_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开安全设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_location_source_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开位置资源设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_internal_storage_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开内存设置页" />
+
+    <RadioButton
+        android:id="@+id/rb_memory_card_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开存储卡设置页" />
+
+  </com.lixueyang.exercise.widgets.FlowRadioGroup>
+
+  <Button
+      android:id="@+id/btn_open_setting"
+      style="@style/FeaturesButton"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_marginBottom="30dp"
+      android:text="打开设置页"
+      app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

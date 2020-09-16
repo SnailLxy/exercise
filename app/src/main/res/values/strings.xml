@@ -33,4 +33,5 @@
   <string name="exercise_new_note_intent">创建笔记相关的Intent</string>
   <string name="exercise_call_intent">拨打电话相关的Intent</string>
   <string name="exercise_send_intent">发送消息相关的Intent</string>
+  <string name="exercise_setting_intent">设置相关的Intent</string>
 </resources>

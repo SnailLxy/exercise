@@ -104,6 +104,15 @@
           android:text="@string/exercise_send_intent"
           app:layout_constraintTop_toBottomOf="@id/btn_goto_call_intent_activity" />
 
+      <Button
+          android:id="@+id/btn_goto_setting_intent_activity"
+          style="@style/GotoActivityButton"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:text="@string/exercise_setting_intent"
+          app:layout_constraintTop_toBottomOf="@id/btn_goto_send_intent_activity" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
 
