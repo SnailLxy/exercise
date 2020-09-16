@@ -77,8 +77,16 @@
           style="@style/GotoActivityButton"
           android:layout_width="match_parent"
           android:layout_height="50dp"
-          android:text="@string/exercise_search_media_play_intent"
+          android:text="@string/exercise_search_intent"
           app:layout_constraintTop_toBottomOf="@id/btn_goto_action_view_intent_activity" />
+
+      <Button
+          android:id="@+id/btn_goto_new_note_intent_activity"
+          style="@style/GotoActivityButton"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:text="@string/exercise_new_note_intent"
+          app:layout_constraintTop_toBottomOf="@id/btn_goto_search_media_play_intent_activity" />
     </androidx.constraintlayout.widget.ConstraintLayout>
   </androidx.core.widget.NestedScrollView>
 

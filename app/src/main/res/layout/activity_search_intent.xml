@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.commonintent.SearchMediaPlayIntentActivity">
+    tools:context=".activity.commonintent.SearchIntentActivity">
 
   <EditText
       android:id="@+id/et_search_music"
@@ -13,13 +13,21 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      android:hint="请输入要搜索的艺术家"/>
+      android:hint="请输入要搜索的内容（搜索音乐输入音乐家）"/>
 
   <Button
       android:id="@+id/btn_search_music"
       style="@style/FeaturesButton"
       android:layout_width="match_parent"
       android:layout_height="50dp"
-      android:text="search music"
+      android:text="从本地搜索音乐"
       app:layout_constraintTop_toBottomOf="@id/et_search_music" />
+
+  <Button
+      android:id="@+id/btn_search_web"
+      style="@style/FeaturesButton"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:text="执行网页搜索"
+      app:layout_constraintTop_toBottomOf="@id/btn_search_music" />
 </androidx.constraintlayout.widget.ConstraintLayout>

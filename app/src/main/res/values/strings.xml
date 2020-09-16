@@ -29,6 +29,7 @@
   <string name="exercise_map_intent">地图相关Intent</string>
   <string name="exercise_open_map">打开地图</string>
   <string name="exercise_action_view_intent">纯展示相关Intent</string>
-  <string name="exercise_search_media_play_intent">通过搜索音乐并播放的Intent</string>
+  <string name="exercise_search_intent">搜索相关的Intent</string>
+  <string name="exercise_new_note_intent">创建笔记相关的Intent</string>
 
 </resources>

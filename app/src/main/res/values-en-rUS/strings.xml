@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  //国际化练习
+  <string name="exercise_app_name">Exercise</string>
+  <string name="exercise_storage_access_framework">Storage Access Framework</string>
+  <string name="exercise_two_way_binding">TwoWayBinding</string>
+  <string name="exercise_create_new_document">createNewDocument</string>
+  <string name="exercise_use_multiple_tasks">useMultipleTasks</string>
+  <string name="exercise_document_num">Document {0}</string>
+  <string name="exercise_common_intent">Common Intent</string>
+  <string name="exercise_easiest_intent">Easiest Intent</string>
+  <string name="exercise_set_alarm">set alarm</string>
+  <string name="exercise_show_alarms">show alarms</string>
+  <string name="exercise_set_timer">set timer</string>
+  <string name="exercise_add_calendar">add calendar</string>
   <string name="exercise_alarm_intent">Alarm Intent</string>
   <string name="exercise_camera_intent">Camera Intent</string>
   <string name="exercise_camera_capture_image">capture image</string>
@@ -17,5 +30,6 @@
   <string name="exercise_map_intent">map intent</string>
   <string name="exercise_open_map">open map</string>
   <string name="exercise_action_view_intent">pure display intent</string>
-  <string name="exercise_search_media_play_intent">search media play intent</string>
+  <string name="exercise_search_intent">search media play intent</string>
+  <string name="exercise_new_note_intent">new note intent</string>
 </resources>

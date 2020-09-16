@@ -50,7 +50,8 @@ public class CommonIntentActivity extends AppCompatActivity {
     binding.btnGotoContactsActivity.setOnClickListener(view -> ContactsIntentActivity.startContactsIntentActivity(this));
     binding.btnGotoMapActivity.setOnClickListener(view -> MapIntentActivity.startMapIntentActivity(this));
     binding.btnGotoActionViewIntentActivity.setOnClickListener(view -> ActionViewIntentActivity.startActionViewIntentActivity(this));
-    binding.btnGotoSearchMediaPlayIntentActivity.setOnClickListener(view -> SearchMediaPlayIntentActivity.startSearchMediaPlayIntentActivity(this));
+    binding.btnGotoSearchMediaPlayIntentActivity.setOnClickListener(view -> SearchIntentActivity.startSearchIntentActivity(this));
+    binding.btnGotoNewNoteIntentActivity.setOnClickListener(view -> NewNoteIntentActivity.startNewNoteIntentActivity(this));
   }
 
   /**
