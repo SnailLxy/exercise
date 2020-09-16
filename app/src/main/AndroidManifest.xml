@@ -3,6 +3,7 @@
     package="com.lixueyang.exercise">
 
   <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+  <uses-permission android:name="android.permission.CALL_PHONE" />
 
   <application
       android:allowBackup="true"
@@ -11,6 +12,7 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
+    <activity android:name=".activity.commonintent.CallIntentActivity"></activity>
     <activity
         android:name=".activity.MainActivity"
         android:theme="@style/ExerciseActivityTheme">

@@ -52,6 +52,7 @@ public class CommonIntentActivity extends AppCompatActivity {
     binding.btnGotoActionViewIntentActivity.setOnClickListener(view -> ActionViewIntentActivity.startActionViewIntentActivity(this));
     binding.btnGotoSearchMediaPlayIntentActivity.setOnClickListener(view -> SearchIntentActivity.startSearchIntentActivity(this));
     binding.btnGotoNewNoteIntentActivity.setOnClickListener(view -> NewNoteIntentActivity.startNewNoteIntentActivity(this));
+    binding.btnGotoCallIntentActivity.setOnClickListener(view -> CallIntentActivity.startCallIntentActivity(this));
   }
 
   /**
