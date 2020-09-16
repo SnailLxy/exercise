@@ -12,7 +12,8 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".activity.commonintent.CallIntentActivity"></activity>
+    <activity android:name=".activity.commonintent.SendIntentActivity"></activity>
+    <activity android:name=".activity.commonintent.CallIntentActivity" />
     <activity
         android:name=".activity.MainActivity"
         android:theme="@style/ExerciseActivityTheme">

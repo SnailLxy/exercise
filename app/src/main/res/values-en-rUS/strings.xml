@@ -33,4 +33,5 @@
   <string name="exercise_search_intent">search media play intent</string>
   <string name="exercise_new_note_intent">new note intent</string>
   <string name="exercise_call_intent">call intent</string>
+  <string name="exercise_send_intent">send intent</string>
 </resources>

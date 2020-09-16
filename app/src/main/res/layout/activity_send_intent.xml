@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.commonintent.SendIntentActivity">
+
+  <EditText
+      android:id="@+id/et_email_no"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="收件人"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <EditText
+      android:id="@+id/et_send_subject"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="发送主题"
+      app:layout_constraintTop_toBottomOf="@id/et_email_no" />
+
+  <EditText
+      android:id="@+id/et_send_content"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="发送内容"
+      app:layout_constraintTop_toBottomOf="@id/et_send_subject" />
+
+  <Button
+      android:id="@+id/btn_send_email"
+      style="@style/FeaturesButton"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:text="发送邮件"
+      app:layout_constraintTop_toBottomOf="@id/et_send_content" />
+
+  <Button
+      android:id="@+id/btn_send_sms"
+      style="@style/FeaturesButton"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:text="发送短信"
+      app:layout_constraintTop_toBottomOf="@id/btn_send_email" />
+</androidx.constraintlayout.widget.ConstraintLayout>
