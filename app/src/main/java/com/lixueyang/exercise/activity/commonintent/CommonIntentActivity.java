@@ -17,6 +17,14 @@ import androidx.databinding.DataBindingUtil;
 /**
  * 常用Intent练习
  * https://developer.android.google.cn/guide/components/intents-common#CallCar
+ * 常见的intent：
+ *        1、Intent.ACTION_INSERT  插入数据，目前练习了插入日历、联系人
+ *        2、Intent.ACTION_PICK    通过打开手机上的相应app获取数据，目前练习了打开图片，打开联系人
+ *        3、Intent.ACTION_VIEW    通过其他app展示数据，目前练习了展示图片、音频、视频、网站、联系人、地图
+ *        4、AlarmClock.ACTION_***_***    闹钟相关的action，都在这个类里，必须请求SET_ALARM权限
+ *        5、MediaStore.ACTION_***_***    媒体相关的action。都在这个类里，包括图片，视频，音频
+ *        6、Intent.ACTION_SEND    发送信息相关的action，目前练习了发送邮件、短信
+ *        6、Settings.ACTION_***_SETTINGS    设置相关的action，都在这个类中
  */
 public class CommonIntentActivity extends AppCompatActivity {
 

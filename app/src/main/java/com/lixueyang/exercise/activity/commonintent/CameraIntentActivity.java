@@ -22,7 +22,7 @@ import com.lixueyang.exercise.utils.LxyFileUtils;
 import java.io.File;
 
 /**
- * 相机相关intent，不许请求摄像头权限就可以查看获取图片
+ * 相机相关intent，不需要请求摄像头权限就可以查看获取图片
  */
 public class CameraIntentActivity extends AppCompatActivity {
 
