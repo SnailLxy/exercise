@@ -40,5 +40,12 @@
         android:text="@string/exercise_common_intent"
         app:layout_constraintTop_toBottomOf="@id/btn_goto_recent_screen_activity" />
 
+    <Button
+        android:id="@+id/btn_goto_motion_layout_activity"
+        style="@style/GotoActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/exercise_motion_layout"
+        app:layout_constraintTop_toBottomOf="@id/btn_goto_common_intent_activity" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

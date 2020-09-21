@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <!-- Transition可以使用多个 -->
+  <Transition
+      app:autoTransition="animateToEnd"
+      app:constraintSetEnd="@+id/end"
+      app:constraintSetStart="@+id/start"
+      app:duration="1000">
+<!--    <OnClick-->
+<!--        app:clickAction="transitionToStart"-->
+<!--        app:targetId="@+id/button" />-->
+    <OnSwipe
+        app:dragDirection="dragRight"
+        app:touchAnchorId="@+id/button"
+        app:touchAnchorSide="right" />
+    <KeyFrameSet>
+      <KeyAttribute
+          android:rotation="-45"
+          android:scaleX="2"
+          android:scaleY="2"
+          app:framePosition="50"
+          app:motionTarget="@id/button" />
+      <KeyPosition
+          app:framePosition="50"
+          app:keyPositionType="pathRelative"
+          app:motionTarget="@+id/button"
+          app:percentY="0.25" />
+      <KeyPosition
+          app:framePosition="80"
+          app:keyPositionType="pathRelative"
+          app:motionTarget="@+id/button"
+          app:percentY="0.5" />
+      <KeyCycle
+          android:translationY="50dp"
+          app:framePosition="100"
+          app:motionTarget="@id/button"
+          app:waveOffset="0"
+          app:wavePeriod="0"
+          app:waveShape="sin" />
+      <KeyCycle
+          android:translationY="50dp"
+          app:framePosition="50"
+          app:motionTarget="@id/button"
+          app:waveOffset="0"
+          app:wavePeriod="1"
+          app:waveShape="sin" />
+      <KeyCycle
+          android:translationY="50dp"
+          app:framePosition="0"
+          app:motionTarget="@id/button"
+          app:waveOffset="0"
+          app:wavePeriod="0"
+          app:waveShape="sin" />
+    </KeyFrameSet>
+  </Transition>
+  <ConstraintSet android:id="@+id/start">
+    <Constraint
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Constraint
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Constraint
+        android:id="@+id/ifv_star"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+      <!--      注意多个CustomAttribute可能只展示一个，注意顺序，下面两个属性顺序改变后，图片转化效果无法实现-->
+      <!--      暖色调     -->
+      <CustomAttribute
+          app:attributeName="warmth"
+          app:customFloatValue="0.2" />
+      <!--      图片转换    -->
+      <CustomAttribute
+          app:attributeName="crossfade"
+          app:customFloatValue="0" />
+
+    </Constraint>
+  </ConstraintSet>
+  <ConstraintSet android:id="@+id/end">
+    <!--  Constraint中id是MotionLayout布局中，对应的控件id  -->
+    <Constraint
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Constraint
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Constraint
+        android:id="@+id/ifv_star"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+      <!--            冷色调-->
+      <CustomAttribute
+          app:attributeName="warmth"
+          app:customFloatValue="2" />
+      <!--      图片转换-->
+      <CustomAttribute
+          app:attributeName="crossfade"
+          app:customFloatValue="1" />
+
+    </Constraint>
+  </ConstraintSet>
+</MotionScene>

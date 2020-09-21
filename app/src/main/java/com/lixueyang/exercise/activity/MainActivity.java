@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     binding.btnGotoTwoWayBindingActivity.setOnClickListener(view -> TwoWayBindingActivity.startTwoWayBindingActivity(MainActivity.this));
     binding.btnGotoRecentScreenActivity.setOnClickListener(view -> RecentScreenActivity.startRecentScreenActivity(MainActivity.this));
     binding.btnGotoCommonIntentActivity.setOnClickListener(view -> CommonIntentActivity.startCommonIntentActivity(MainActivity.this));
+    binding.btnGotoMotionLayoutActivity.setOnClickListener(view -> MotionLayoutActivity.startMotionLayoutActivity(MainActivity.this));
   }
 
 
