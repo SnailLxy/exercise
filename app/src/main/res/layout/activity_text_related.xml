@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.TextRelatedActivity">
+  <!--  autoSizeTextType相关支持Android8.0以上版本，要是配低版本，使用支持库即app属性-->
+  <TextView
+      android:id="@+id/text_view_font"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:fontFamily="@font/abril_fatface"
+      android:text="请替换文字试试"
+      app:autoSizePresetSizes="@array/auto_size_text_sizes"
+      app:autoSizeTextType="uniform"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:layout_marginTop="200dp"
+      android:fontFamily="@font/aclonica"
+      android:text="TextView"
+      app:autoSizeMaxTextSize="100sp"
+      app:autoSizeMinTextSize="10sp"
+      app:autoSizeStepGranularity="10sp"
+      app:autoSizeTextType="uniform"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.emoji.widget.EmojiAppCompatEditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="请输入表情"
+      app:layout_constraintTop_toBottomOf="@id/textView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

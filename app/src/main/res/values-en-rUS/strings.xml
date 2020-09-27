@@ -36,4 +36,5 @@
   <string name="exercise_send_intent">send intent</string>
   <string name="exercise_setting_intent">setting intent</string>
   <string name="exercise_motion_layout">exercise MotionLayout</string>
+  <string name="exercise_text_related">text related</string>
 </resources>
