@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     binding.btnGotoCommonIntentActivity.setOnClickListener(view -> CommonIntentActivity.startCommonIntentActivity(MainActivity.this));
     binding.btnGotoMotionLayoutActivity.setOnClickListener(view -> MotionLayoutActivity.startMotionLayoutActivity(MainActivity.this));
     binding.btnGotoTextRelatedActivity.setOnClickListener(view -> TextRelatedActivity.startTextRelatedActivity(MainActivity.this));
+    binding.btnGotoNotificationActivity.setOnClickListener(view -> NotificationActivity.startNotificationActivity(MainActivity.this));
   }
 
 

@@ -36,4 +36,5 @@
   <string name="exercise_setting_intent">设置相关的Intent</string>
   <string name="exercise_motion_layout">练习MotionLayout</string>
   <string name="exercise_text_related">文案相关</string>
+  <string name="exercise_notification">通知</string>
 </resources>

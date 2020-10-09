@@ -13,8 +13,6 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".activity.TextRelatedActivity"></activity>
-    <activity android:name=".activity.MotionLayoutActivity" />
     <activity
         android:name=".activity.MainActivity"
         android:theme="@style/ExerciseActivityTheme">
@@ -72,6 +70,15 @@
     <activity
         android:name=".activity.commonintent.CallIntentActivity"
         android:label="@string/exercise_call_intent" />
+    <activity
+        android:name=".activity.NotificationActivity"
+        android:label="@string/exercise_notification" />
+    <activity
+        android:name=".activity.TextRelatedActivity"
+        android:label="@string/exercise_text_related" />
+    <activity
+        android:name=".activity.MotionLayoutActivity"
+        android:label="@string/exercise_motion_layout" />
 
     <provider
         android:name="androidx.core.content.FileProvider"
@@ -82,6 +89,7 @@
           android:name="android.support.FILE_PROVIDER_PATHS"
           android:resource="@xml/file_paths" />
     </provider>
+
     <meta-data
         android:name="preloaded_fonts"
         android:resource="@array/preloaded_fonts" />
