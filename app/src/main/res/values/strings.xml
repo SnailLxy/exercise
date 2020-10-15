@@ -37,4 +37,10 @@
   <string name="exercise_motion_layout">练习MotionLayout</string>
   <string name="exercise_text_related">文案相关</string>
   <string name="exercise_notification">通知</string>
+  <string name="exercise_notification_normal_title">简单通知</string>
+  <string name="exercise_notification_normal_content">这是一条测试普通通知的通知，包含基本信息，图片，内容跳转，action，同时可以控制是否展示长文本！！！！</string>
+  <string name="exercise_notification_replay_title">可回复通知</string>
+  <string name="exercise_notification_replay_label">回复</string>
+  <string name="exercise_notification_replay_hint">请在这里输入回复内容</string>
+  <string name="exercise_notification_replay_content">明天有空吗？出来玩啊！</string>
 </resources>

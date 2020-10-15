@@ -38,4 +38,10 @@
   <string name="exercise_motion_layout">exercise MotionLayout</string>
   <string name="exercise_text_related">text related</string>
   <string name="exercise_notification">notification</string>
+  <string name="exercise_notification_normal_title">nomal notification</string>
+  <string name="exercise_notification_replay_title">replay notification</string>
+  <string name="exercise_notification_normal_content">This is a test of general notification notice, including basic information, pictures, content jump, action, and can control whether to display long text</string>
+  <string name="exercise_notification_replay_content">Are you free tomorrow? Come out and play!</string>
+  <string name="exercise_notification_replay_label">replay</string>
+  <string name="exercise_notification_replay_hint">Please enter your reply here</string>
 </resources>

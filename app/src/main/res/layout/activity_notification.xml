@@ -6,14 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".activity.NotificationActivity">
 
-  <CheckBox
-      android:id="@+id/cb_show_big_text"
-      android:layout_width="wrap_content"
+  <RadioGroup
+      android:id="@+id/rg_normal_notification_style"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="24dp"
-      android:text="通知是否可展示大文本"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent">
+
+    <RadioButton
+        android:id="@+id/rb_show_big_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通知是否可展示大文本" />
+
+    <RadioButton
+        android:id="@+id/rb_show_big_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通知是否可展示大图片" />
+
+    <RadioButton
+        android:id="@+id/rb_show_inbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="通知展示收件箱样式" />
+  </RadioGroup>
+
+  <EditText
+      android:id="@+id/et_notification_content"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:hint="请输入简单通知内容"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/rg_normal_notification_style" />
 
   <Button
       android:id="@+id/btn_send_normal_notification"
@@ -23,4 +51,36 @@
       android:layout_marginTop="200dp"
       android:text="发送简单通知"
       app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+      android:id="@+id/btn_send_reply_notification"
+      style="@style/FeaturesButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="发送可回复通知"
+      app:layout_constraintTop_toBottomOf="@id/btn_send_normal_notification" />
+
+  <Button
+      android:id="@+id/btn_send_talk_notification"
+      style="@style/FeaturesButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="发送显示对话的通知"
+      app:layout_constraintTop_toBottomOf="@id/btn_send_reply_notification" />
+
+  <Button
+      android:id="@+id/btn_send_music_notification"
+      style="@style/FeaturesButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="媒体控件相关的通知"
+      app:layout_constraintTop_toBottomOf="@id/btn_send_talk_notification" />
+
+  <Button
+      android:id="@+id/btn_send_custom_notification"
+      style="@style/FeaturesButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="自定义相关的通知"
+      app:layout_constraintTop_toBottomOf="@id/btn_send_music_notification" />
 </androidx.constraintlayout.widget.ConstraintLayout>

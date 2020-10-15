@@ -31,7 +31,8 @@
     <activity
         android:name=".activity.RecentScreenActivity"
         android:launchMode="standard" />
-    <activity android:name=".activity.NewDocumentActivity">
+    <activity android:name=".activity.NewDocumentActivity"
+        android:parentActivityName=".activity.RecentScreenActivity">
       <intent-filter>
         <action android:name="lxy.intent.action.CALL" />
         <action android:name="lxy.intent.action.CALL11" />
@@ -39,7 +40,8 @@
         <category android:name="android.intent.category.DEFAULT" />
       </intent-filter>
     </activity>
-    <activity android:name=".activity.commonintent.CommonIntentActivity" />
+    <activity
+        android:name=".activity.commonintent.CommonIntentActivity" />
     <activity
         android:name=".activity.commonintent.AlarmIntentActivity"
         android:label="@string/exercise_alarm_intent" />
