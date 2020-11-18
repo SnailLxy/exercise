@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".activity.PictureAndShapeActivity">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/cl_image"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_light_vibrant"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Light Vibrant"
+        app:layout_constraintEnd_toStartOf="@+id/btn_vibrant"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_vibrant"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Vibrant"
+        app:layout_constraintEnd_toStartOf="@+id/btn_dark_vibrant"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/btn_light_vibrant"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_dark_vibrant"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Dark Vibrant"
+        app:layout_constraintEnd_toStartOf="@+id/btn_light_muted"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/btn_vibrant"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_light_muted"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Light Muted"
+        app:layout_constraintEnd_toStartOf="@+id/btn_muted"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/btn_dark_vibrant"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_muted"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Muted"
+        app:layout_constraintEnd_toStartOf="@+id/btn_dark_muted"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/btn_light_muted"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_dark_muted"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Dark Muted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/btn_muted"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_original_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/test_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_compress_bitmap_quality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_original_pic" />
+
+    <ImageView
+        android:id="@+id/iv_compress_bitmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_compress_bitmap_quality" />
+
+    <ImageView
+        android:id="@+id/iv_compress_scale_bitmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_compress_bitmap" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -44,4 +44,5 @@
   <string name="exercise_notification_replay_content">Are you free tomorrow? Come out and play!</string>
   <string name="exercise_notification_replay_label">replay</string>
   <string name="exercise_notification_replay_hint">Please enter your reply here</string>
+  <string name="exercise_picture_and_shape">Picture And Shape</string>
 </resources>

@@ -31,7 +31,8 @@
     <activity
         android:name=".activity.RecentScreenActivity"
         android:launchMode="standard" />
-    <activity android:name=".activity.NewDocumentActivity"
+    <activity
+        android:name=".activity.NewDocumentActivity"
         android:parentActivityName=".activity.RecentScreenActivity">
       <intent-filter>
         <action android:name="lxy.intent.action.CALL" />
@@ -40,8 +41,7 @@
         <category android:name="android.intent.category.DEFAULT" />
       </intent-filter>
     </activity>
-    <activity
-        android:name=".activity.commonintent.CommonIntentActivity" />
+    <activity android:name=".activity.commonintent.CommonIntentActivity" />
     <activity
         android:name=".activity.commonintent.AlarmIntentActivity"
         android:label="@string/exercise_alarm_intent" />
@@ -81,6 +81,9 @@
     <activity
         android:name=".activity.MotionLayoutActivity"
         android:label="@string/exercise_motion_layout" />
+    <activity
+        android:name=".activity.PictureAndShapeActivity"
+        android:label="@string/exercise_picture_and_shape" />
 
     <provider
         android:name="androidx.core.content.FileProvider"

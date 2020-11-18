@@ -63,5 +63,13 @@
         android:layout_height="50dp"
         android:text="@string/exercise_notification"
         app:layout_constraintTop_toBottomOf="@id/btn_goto_text_related_activity" />
+
+    <Button
+        android:id="@+id/btn_goto_picture_and_shape_activity"
+        style="@style/GotoActivityButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/exercise_picture_and_shape"
+        app:layout_constraintTop_toBottomOf="@id/btn_goto_notification_activity" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

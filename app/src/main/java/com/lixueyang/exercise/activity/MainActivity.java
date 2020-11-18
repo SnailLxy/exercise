@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     binding.btnGotoMotionLayoutActivity.setOnClickListener(view -> MotionLayoutActivity.startMotionLayoutActivity(MainActivity.this));
     binding.btnGotoTextRelatedActivity.setOnClickListener(view -> TextRelatedActivity.startTextRelatedActivity(MainActivity.this));
     binding.btnGotoNotificationActivity.setOnClickListener(view -> NotificationActivity.startNotificationActivity(MainActivity.this));
+    binding.btnGotoPictureAndShapeActivity.setOnClickListener(view -> PictureAndShapeActivity.startPictureAndShapeActivity(MainActivity.this));
   }
 
 
