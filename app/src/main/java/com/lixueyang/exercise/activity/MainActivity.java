@@ -2,34 +2,58 @@ package com.lixueyang.exercise.activity;
 
 import android.os.Bundle;
 
+import com.lixueyang.exercise.R;
 import com.lixueyang.exercise.activity.commonintent.CommonIntentActivity;
+import com.lixueyang.exercise.adapters.ActivityItemAdapter;
 import com.lixueyang.exercise.databinding.ActivityMainBinding;
+import com.lixueyang.exercise.models.ActivityItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 public class MainActivity extends AppCompatActivity {
-  public static final String TAG = "MainActivity";
+
   private ActivityMainBinding binding;
+  private List<ActivityItem> activityItemList;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = ActivityMainBinding.inflate(getLayoutInflater());
     setContentView(binding.getRoot());
+    initActivityItemList();
     initListener();
 
   }
 
-  private void initListener() {
-    binding.btnGotoSafActivity.setOnClickListener(view -> StorageAccessFrameworkActivity.startSAFActivity(MainActivity.this));
-    binding.btnGotoTwoWayBindingActivity.setOnClickListener(view -> TwoWayBindingActivity.startTwoWayBindingActivity(MainActivity.this));
-    binding.btnGotoRecentScreenActivity.setOnClickListener(view -> RecentScreenActivity.startRecentScreenActivity(MainActivity.this));
-    binding.btnGotoCommonIntentActivity.setOnClickListener(view -> CommonIntentActivity.startCommonIntentActivity(MainActivity.this));
-    binding.btnGotoMotionLayoutActivity.setOnClickListener(view -> MotionLayoutActivity.startMotionLayoutActivity(MainActivity.this));
-    binding.btnGotoTextRelatedActivity.setOnClickListener(view -> TextRelatedActivity.startTextRelatedActivity(MainActivity.this));
-    binding.btnGotoNotificationActivity.setOnClickListener(view -> NotificationActivity.startNotificationActivity(MainActivity.this));
-    binding.btnGotoPictureAndShapeActivity.setOnClickListener(view -> PictureAndShapeActivity.startPictureAndShapeActivity(MainActivity.this));
+  private void initActivityItemList() {
+    activityItemList = new ArrayList<>();
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_storage_access_framework),
+        () -> StorageAccessFrameworkActivity.startSAFActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_two_way_binding),
+        () -> TwoWayBindingActivity.startTwoWayBindingActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_create_new_document),
+        () -> RecentScreenActivity.startRecentScreenActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_common_intent),
+        () -> CommonIntentActivity.startCommonIntentActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_motion_layout),
+        () -> MotionLayoutActivity.startMotionLayoutActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_text_related),
+        () -> TextRelatedActivity.startTextRelatedActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_notification),
+        () -> NotificationActivity.startNotificationActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_picture_and_shape),
+        () -> PictureAndShapeActivity.startPictureAndShapeActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_animator),
+        () -> AnimatorActivity.startAnimatorActivity(MainActivity.this)));
   }
 
-
+  private void initListener() {
+    binding.rvActivityItem.setLayoutManager(new LinearLayoutManager(this));
+    ActivityItemAdapter activityItemAdapter = new ActivityItemAdapter(this, activityItemList);
+    binding.rvActivityItem.setAdapter(activityItemAdapter);
+  }
 }

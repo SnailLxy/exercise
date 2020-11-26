@@ -5,13 +5,14 @@
 
   <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      tools:context="com.lixueyang.exercise.activity.MainActivity">
+      android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_activity_item"
+    <Button
+        android:id="@+id/btn_goto_activity"
+        style="@style/GotoActivityButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/ea_item_start_activity" />
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="跳转activity" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
