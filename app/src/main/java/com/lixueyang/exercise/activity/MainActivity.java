@@ -1,6 +1,7 @@
 package com.lixueyang.exercise.activity;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.lixueyang.exercise.R;
 import com.lixueyang.exercise.activity.commonintent.CommonIntentActivity;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     binding = ActivityMainBinding.inflate(getLayoutInflater());
     setContentView(binding.getRoot());
+    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);//保持屏幕开启
     initActivityItemList();
     initListener();
 

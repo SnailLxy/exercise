@@ -44,4 +44,37 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
+  <TextView
+      android:id="@+id/tv_circular_reveal"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:background="@color/c_features_press"
+      android:gravity="center"
+      android:text="圆形揭露动画"
+      android:textColor="@color/c_text_white"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/iv_animator_spring"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_marginTop="150dp"
+      android:background="@color/c_features_normal"
+      android:gravity="center"
+      android:text="SpringAnimation"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+      android:id="@+id/iv_animator_spring_1"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_marginTop="300dp"
+      android:background="@color/c_features_normal"
+      android:gravity="center"
+      android:text="SpringAnimation1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

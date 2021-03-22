@@ -1,25 +1,27 @@
 package com.lixueyang.exercise.activity.commonintent;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-import androidx.databinding.DataBindingUtil;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.FileUtils;
 import android.provider.MediaStore;
+import android.util.Size;
 
 import com.lixueyang.exercise.R;
 import com.lixueyang.exercise.databinding.ActivityCameraIntentBinding;
-import com.lixueyang.exercise.utils.ImageUtils;
 import com.lixueyang.exercise.utils.IntentUtils;
 import com.lixueyang.exercise.utils.LxyFileUtils;
 
 import java.io.File;
+import java.io.IOException;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+import androidx.databinding.DataBindingUtil;
 
 /**
  * 相机相关intent，不需要请求摄像头权限就可以查看获取图片
@@ -119,6 +121,8 @@ public class CameraIntentActivity extends AppCompatActivity {
 //          binding.ivShowCaptureImage.setImageBitmap(bitmap);
           //展示完整尺寸图片
           binding.ivShowCaptureImage.setImageURI(imageFileUri);
+          //展示缩略图
+          //showThumbnail();
           galleryAddPic();
         } else if (data != null) {
           //展示缩略图
@@ -132,6 +136,20 @@ public class CameraIntentActivity extends AppCompatActivity {
           binding.vvShowCaptureVideo.start();
         }
         break;
+    }
+  }
+
+  /**
+   * 展示缩略图
+   */
+  @RequiresApi(api = Build.VERSION_CODES.Q)
+  private void showThumbnail() {
+    Bitmap thumbnail;
+    try {
+      thumbnail = getApplicationContext().getContentResolver().loadThumbnail(imageFileUri, new Size(640, 480), null);
+      binding.ivShowCaptureImage.setImageBitmap(thumbnail);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 

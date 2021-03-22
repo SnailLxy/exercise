@@ -1,7 +1,5 @@
 package com.lixueyang.exercise.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
@@ -11,21 +9,40 @@ import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Path;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.CycleInterpolator;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.PathInterpolator;
 import android.widget.Toast;
 
 import com.lixueyang.exercise.databinding.ActivityAnimatorBinding;
 
+import java.util.logging.Logger;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.FlingAnimation;
+import androidx.dynamicanimation.animation.SpringAnimation;
+import androidx.dynamicanimation.animation.SpringForce;
+
 public class AnimatorActivity extends AppCompatActivity {
 
+  public static final String TAG = "AnimatorActivity";
   private ActivityAnimatorBinding binding;
   private ValueAnimator valueAnimator;
   private ObjectAnimator translationYAnimator;
   private ObjectAnimator fadeAnimator;
+  private SpringAnimation springAnimationY;
+  private SpringAnimation springAnimationY1;
+  private SpringAnimation springAnimationX;
+  private SpringAnimation springAnimationX1;
 
   public static void startAnimatorActivity(Activity activity) {
     Intent intent = new Intent(activity, AnimatorActivity.class);
@@ -40,10 +57,10 @@ public class AnimatorActivity extends AppCompatActivity {
     initValueAnimator();
     initObjectAnimator();
     initViewGroupAnimator();
-
     initKeyframeView();
+    initCircularRevealAnimation();
+    initSpringAnimation();
   }
-
 
   private void initValueAnimator() {
     valueAnimator = ValueAnimator.ofInt(0, 60);
@@ -140,6 +157,58 @@ public class AnimatorActivity extends AppCompatActivity {
 
     binding.tvKeyframe.setOnClickListener(view -> {
       Toast.makeText(AnimatorActivity.this, "ViewPropertyAnimator效果", Toast.LENGTH_LONG).show();
+      Path path = new Path();
+      //在left, top, right, bottom范围内，以其中心为圆心，从startAngle角度开始，顺时针旋转sweepAngle度
+      path.arcTo(100f, 0f, 500f, 500f, 0f, 180f, true);
+      ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.X, View.Y, path);
+      animator.setDuration(2000);
+      animator.start();
+    });
+  }
+
+  private void initCircularRevealAnimation() {
+    binding.tvCircularReveal.setOnClickListener(view -> {
+      int cx = view.getWidth() / 2;
+      int cy = view.getHeight() / 2;
+      Animator animator = ViewAnimationUtils.createCircularReveal(view, cx, cy, cx, 0f);
+      view.setVisibility(View.GONE);
+      //隐藏的话，最好是不要使用onAnimationEnd，因为这时，会出现控件最开始的界面
+//      animator.addListener(new AnimatorListenerAdapter() {
+//        @Override
+//        public void onAnimationEnd(Animator animation) {
+//          super.onAnimationEnd(animation);
+//          view.setVisibility(View.GONE);
+//        }
+//      });
+      animator.start();
+    });
+  }
+
+  private void initSpringAnimation() {
+    springAnimationY = new SpringAnimation(binding.ivAnimatorSpring, DynamicAnimation.Y, 100);
+    springAnimationX = new SpringAnimation(binding.ivAnimatorSpring, DynamicAnimation.X, 100);
+    springAnimationY1 = new SpringAnimation(binding.ivAnimatorSpring1, DynamicAnimation.Y,0);
+    springAnimationX1 = new SpringAnimation(binding.ivAnimatorSpring1, DynamicAnimation.X,0);
+    springAnimationX.setStartVelocity(10);
+//    springAnimationX.getSpring().setDampingRatio(0);//为0时会一直晃动，不会停止。可以做永不停止的往复动画。不过不建议这么做
+    springAnimationX.getSpring().setDampingRatio(0.1f);
+    springAnimationY.setStartVelocity(10);
+    springAnimationY.getSpring().setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY);
+
+    springAnimationY1.getSpring().setDampingRatio(10f);
+    springAnimationY1.getSpring().setStiffness(SpringForce.STIFFNESS_HIGH);
+    springAnimationX1.getSpring().setDampingRatio(10f);
+
+    springAnimationY.addUpdateListener((animation, value, velocity) -> {
+      springAnimationY1.animateToFinalPosition(value);
+    });
+    springAnimationX.addUpdateListener((animation, value, velocity) -> {
+      springAnimationX1.animateToFinalPosition(value);
+    });
+
+    binding.ivAnimatorSpring.setOnClickListener(view -> {
+      springAnimationX.start();
+      springAnimationY.start();
     });
   }
 
@@ -153,5 +222,9 @@ public class AnimatorActivity extends AppCompatActivity {
     super.onDestroy();
     valueAnimator.cancel();
     translationYAnimator.cancel();
+    springAnimationX.cancel();
+    springAnimationY.cancel();
+    springAnimationX1.cancel();
+    springAnimationY1.cancel();
   }
 }
