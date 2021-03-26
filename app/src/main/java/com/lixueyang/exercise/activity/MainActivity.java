@@ -1,5 +1,6 @@
 package com.lixueyang.exercise.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         () -> PictureAndShapeActivity.startPictureAndShapeActivity(MainActivity.this)));
     activityItemList.add(new ActivityItem(getString(R.string.exercise_animator),
         () -> AnimatorActivity.startAnimatorActivity(MainActivity.this)));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_transition),
+        () -> startActivity(new Intent(MainActivity.this, TransitionActivity.class))));
   }
 
   private void initListener() {
