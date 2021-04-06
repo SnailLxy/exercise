@@ -13,6 +13,7 @@ import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -60,6 +61,9 @@ public class AnimatorActivity extends AppCompatActivity {
     initKeyframeView();
     initCircularRevealAnimation();
     initSpringAnimation();
+    ObjectAnimator animator = ObjectAnimator.ofInt(binding.pbTime, "progress", 0, 100)
+        .setDuration(DateUtils.MINUTE_IN_MILLIS);
+    animator.start();
   }
 
   private void initValueAnimator() {
@@ -187,8 +191,8 @@ public class AnimatorActivity extends AppCompatActivity {
   private void initSpringAnimation() {
     springAnimationY = new SpringAnimation(binding.ivAnimatorSpring, DynamicAnimation.Y, 100);
     springAnimationX = new SpringAnimation(binding.ivAnimatorSpring, DynamicAnimation.X, 100);
-    springAnimationY1 = new SpringAnimation(binding.ivAnimatorSpring1, DynamicAnimation.Y,0);
-    springAnimationX1 = new SpringAnimation(binding.ivAnimatorSpring1, DynamicAnimation.X,0);
+    springAnimationY1 = new SpringAnimation(binding.ivAnimatorSpring1, DynamicAnimation.Y, 0);
+    springAnimationX1 = new SpringAnimation(binding.ivAnimatorSpring1, DynamicAnimation.X, 0);
     springAnimationX.setStartVelocity(10);
 //    springAnimationX.getSpring().setDampingRatio(0);//为0时会一直晃动，不会停止。可以做永不停止的往复动画。不过不建议这么做
     springAnimationX.getSpring().setDampingRatio(0.1f);
