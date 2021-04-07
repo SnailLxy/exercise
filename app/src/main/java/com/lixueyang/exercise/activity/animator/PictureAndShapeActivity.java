@@ -1,10 +1,11 @@
-package com.lixueyang.exercise.activity;
+package com.lixueyang.exercise.activity.animator;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.palette.graphics.Palette;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,8 +15,6 @@ import android.util.Log;
 import com.lixueyang.exercise.R;
 import com.lixueyang.exercise.databinding.ActivityPictureAndShapeBinding;
 import com.lixueyang.exercise.utils.ImageUtils;
-
-import java.util.logging.Logger;
 
 public class PictureAndShapeActivity extends AppCompatActivity {
   public static final String TAG = "PictureAndShapeActivity";
@@ -37,6 +36,16 @@ public class PictureAndShapeActivity extends AppCompatActivity {
     initImageView();
     createPaletteSync();
     initPaletteColor();
+    initSharePictureTranslation();
+  }
+
+  private void initSharePictureTranslation() {
+    binding.ivCompressScaleBitmap.setOnClickListener(view -> {
+      Intent intent = new Intent(this, SharePictureActivity.class);
+      ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(this,
+          binding.ivCompressScaleBitmap, "share_picture");
+      startActivity(intent,activityOptions.toBundle());
+    });
   }
 
   private void initImageView() {

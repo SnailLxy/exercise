@@ -1,4 +1,4 @@
-package com.lixueyang.exercise.activity;
+package com.lixueyang.exercise.activity.animator;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -10,26 +10,18 @@ import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Path;
-import android.graphics.Point;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.format.DateUtils;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import android.view.animation.PathInterpolator;
 import android.widget.Toast;
 
 import com.lixueyang.exercise.databinding.ActivityAnimatorBinding;
 
-import java.util.logging.Logger;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.dynamicanimation.animation.DynamicAnimation;
-import androidx.dynamicanimation.animation.FlingAnimation;
 import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
 

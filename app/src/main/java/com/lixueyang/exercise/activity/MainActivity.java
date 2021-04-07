@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.lixueyang.exercise.R;
+import com.lixueyang.exercise.activity.animator.AnimatorActivity;
+import com.lixueyang.exercise.activity.animator.PictureAndShapeActivity;
 import com.lixueyang.exercise.activity.commonintent.CommonIntentActivity;
 import com.lixueyang.exercise.adapters.ActivityItemAdapter;
 import com.lixueyang.exercise.databinding.ActivityMainBinding;

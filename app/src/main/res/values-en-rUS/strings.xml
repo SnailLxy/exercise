@@ -47,4 +47,5 @@
   <string name="exercise_picture_and_shape">Picture And Shape</string>
   <string name="exercise_animator">Animator</string>
   <string name="exercise_transition">Transition</string>
+  <string name="exercise_share_picture">Share Picture</string>
 </resources>

@@ -36,4 +36,13 @@
     <item name="android:textStyle">bold</item>
     <item name="android:textSize">18sp</item>
   </style>
+
+  <style name="ExerciseActivityTransitionsTheme" parent="ExerciseActivityTheme">
+    <item name="android:windowActivityTransitions">true</item>
+    <item name="android:windowEnterTransition">@android:transition/explode</item>
+    <item name="android:windowExitTransition">@android:transition/explode</item>
+<!--    <item name="android:windowSharedElementEnterTransition">@transition/change_image_transform-->
+<!--    </item>-->
+<!--    <item name="android:windowSharedElementExitTransition">@transition/change_image_transform</item>-->
+  </style>
 </resources>

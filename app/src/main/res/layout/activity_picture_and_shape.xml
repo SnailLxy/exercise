@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".activity.PictureAndShapeActivity">
+    tools:context=".activity.animator.PictureAndShapeActivity">
 
   <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/cl_image"
@@ -103,7 +103,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_compress_bitmap" />
+        app:layout_constraintTop_toBottomOf="@id/iv_compress_bitmap"
+        android:transitionName="share_picture"/>
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

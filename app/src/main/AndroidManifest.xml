@@ -13,8 +13,6 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".activity.TransitionActivity"></activity>
-    <activity android:name=".activity.AnimatorActivity" />
     <activity
         android:name=".activity.MainActivity"
         android:theme="@style/ExerciseActivityTheme">
@@ -43,10 +41,13 @@
         <category android:name="android.intent.category.DEFAULT" />
       </intent-filter>
     </activity>
-    <activity android:name=".activity.commonintent.CommonIntentActivity" />
+    <activity
+        android:name=".activity.commonintent.CommonIntentActivity"
+        android:theme="@style/ExerciseActivityTransitionsTheme" />
     <activity
         android:name=".activity.commonintent.AlarmIntentActivity"
-        android:label="@string/exercise_alarm_intent" />
+        android:label="@string/exercise_alarm_intent"
+        android:theme="@style/ExerciseActivityTransitionsTheme" />
     <activity
         android:name=".activity.commonintent.CameraIntentActivity"
         android:label="@string/exercise_common_intent" />
@@ -83,9 +84,16 @@
     <activity
         android:name=".activity.MotionLayoutActivity"
         android:label="@string/exercise_motion_layout" />
+    <activity android:name=".activity.TransitionActivity" />
+    <activity android:name=".activity.animator.AnimatorActivity" />
     <activity
-        android:name=".activity.PictureAndShapeActivity"
-        android:label="@string/exercise_picture_and_shape" />
+        android:name=".activity.animator.PictureAndShapeActivity"
+        android:label="@string/exercise_picture_and_shape"
+        android:theme="@style/ExerciseActivityTransitionsTheme" />
+    <activity
+        android:name=".activity.animator.SharePictureActivity"
+        android:label="@string/exercise_share_picture"
+        android:theme="@style/ExerciseActivityTransitionsTheme" />
 
     <provider
         android:name="androidx.core.content.FileProvider"
