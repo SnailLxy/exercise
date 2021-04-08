@@ -2,6 +2,8 @@ package com.lixueyang.exercise;
 
 import android.app.Application;
 
+import java.util.logging.Logger;
+
 import androidx.emoji.bundled.BundledEmojiCompatConfig;
 import androidx.emoji.text.EmojiCompat;
 

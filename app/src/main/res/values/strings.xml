@@ -47,4 +47,8 @@
   <string name="exercise_animator">动画</string>
   <string name="exercise_transition">过度动画</string>
   <string name="exercise_share_picture">共享图片</string>
+  <string name="exercise_view_page_animator">ViewPager动画</string>
+  <string name="title_activity_view_pager_animator">ViewPagerAnimatorActivity</string>
+  <string name="hello_first_fragment">Hello first fragment</string>
+  <string name="hello_second_fragment">Hello second fragment</string>
 </resources>

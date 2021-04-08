@@ -14,6 +14,10 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
     <activity
+        android:name=".activity.animator.ViewPagerAnimatorActivity"
+        android:label="@string/title_activity_view_pager_animator"
+        android:theme="@style/AppTheme.NoActionBar"></activity>
+    <activity
         android:name=".activity.MainActivity"
         android:theme="@style/ExerciseActivityTheme">
       <intent-filter>

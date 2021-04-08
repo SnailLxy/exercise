@@ -7,6 +7,7 @@ import android.view.WindowManager;
 import com.lixueyang.exercise.R;
 import com.lixueyang.exercise.activity.animator.AnimatorActivity;
 import com.lixueyang.exercise.activity.animator.PictureAndShapeActivity;
+import com.lixueyang.exercise.activity.animator.ViewPagerAnimatorActivity;
 import com.lixueyang.exercise.activity.commonintent.CommonIntentActivity;
 import com.lixueyang.exercise.adapters.ActivityItemAdapter;
 import com.lixueyang.exercise.databinding.ActivityMainBinding;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         () -> AnimatorActivity.startAnimatorActivity(MainActivity.this)));
     activityItemList.add(new ActivityItem(getString(R.string.exercise_transition),
         () -> startActivity(new Intent(MainActivity.this, TransitionActivity.class))));
+    activityItemList.add(new ActivityItem(getString(R.string.exercise_view_page_animator),
+        () -> startActivity(new Intent(MainActivity.this, ViewPagerAnimatorActivity.class))));
   }
 
   private void initListener() {

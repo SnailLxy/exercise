@@ -48,4 +48,8 @@
   <string name="exercise_animator">Animator</string>
   <string name="exercise_transition">Transition</string>
   <string name="exercise_share_picture">Share Picture</string>
+  <string name="exercise_view_page_animator">ViewPager Animator</string>
+  <string name="hello_first_fragment">Hello first fragment</string>
+  <string name="hello_second_fragment">Hello second fragment</string>
+  <string name="title_activity_view_pager_animator" translatable="false">ViewPagerAnimatorActivity</string>
 </resources>
