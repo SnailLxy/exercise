@@ -1,14 +1,14 @@
 package com.lixueyang.exercise.widgets
 
 import android.view.View
-import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import kotlin.math.abs
 
 /**
  * Created on 2021/4/7.
  *
  */
-class ZoomOutPageTransformer : ViewPager.PageTransformer {
+class ZoomOutPageTransformer : ViewPager2.PageTransformer {
     private val MIN_SCALE = 0.85f
     private val MIN_ALPHA = 0.5f
 
